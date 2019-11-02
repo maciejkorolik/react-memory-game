@@ -1,25 +1,66 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Card from "./components/Card";
+import Board from "./components/Board";
+import allIcons from "./icons";
+import shuffle from "lodash.shuffle";
+
+const shuffledIcons = shuffle(allIcons);
 
 function App() {
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [flippedIcons, setFlippedIcons] = useState([]);
+  const [won, setWon] = useState([]);
+  const [moves, setMoves] = useState(0);
+  const [gameState, setGameState] = useState("play");
+
+  const handleClick = (icon, id) => {
+    if (flippedCards.length < 2) {
+      const newFlippedCards = [...flippedCards, id];
+      setFlippedCards(newFlippedCards);
+      const newFlippedIcons = [...flippedIcons, icon];
+      setFlippedIcons(newFlippedIcons);
+      if (newFlippedIcons.length === 2) {
+        checkCards(newFlippedIcons);
+      }
+    }
+  };
+
+  const checkCards = icons => {
+    setMoves(moves + 1);
+    let newWon = [];
+    setTimeout(() => {
+      if (icons[0] === icons[1]) {
+        newWon = [...won, ...icons];
+        setWon(newWon);
+      }
+      setFlippedCards([]);
+      setFlippedIcons([]);
+      if (newWon.length === shuffledIcons.length) {
+        setGameState("finished");
+      }
+    }, 1000);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>{moves} moves</h1>
+      {gameState === "play" ? (
+        <Board>
+          {shuffledIcons.map((icon, index) => (
+            <Card
+              key={index}
+              id={index}
+              icon={icon}
+              flippedCards={flippedCards}
+              hiddenCards={won}
+              handleClick={handleClick}
+            />
+          ))}
+        </Board>
+      ) : (
+        <h1>Win!!</h1>
+      )}
+    </>
   );
 }
 
