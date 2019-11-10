@@ -1,12 +1,33 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+const Card = ({ icon, id, flippedCards, hiddenCards, handleClick }) => {
+  const clickable = !flippedCards.includes(id) && !hiddenCards.includes(icon);
+  return (
+    <>
+      <CardWrapper onClick={clickable ? () => handleClick(icon, id) : null}>
+        <CardSide front flipped={flippedCards.includes(id)}>
+          <img src={icon} alt="icon" />
+        </CardSide>
+        <CardSide
+          back
+          won={hiddenCards.includes(icon)}
+          flipped={flippedCards.includes(id)}
+        />
+      </CardWrapper>
+    </>
+  );
+};
+
+export default Card;
+
+//Styled components
+
 const CardWrapper = styled.div`
-  width: 100px;
-  height: 150px;
-  margin: 20px;
+  width: 170px;
+  height: 170px;
+  margin: 0px;
   position: relative;
-  opacity: ${({ won }) => (won ? "0.2" : "1")};
 `;
 
 const CardSide = styled.div`
@@ -16,15 +37,17 @@ const CardSide = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 15px;
-  transition: transform 0.6s cubic-bezier(0.21, 1.39, 0.49, 1.1);
+  border-radius: 20px;
+  transition: transform 0.6s cubic-bezier(0.21, 1.39, 0.49, 1.1),
+    background-color 0.6s ease;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 8px rgba(37, 104, 239, 0.4);
   ${({ front }) =>
     front &&
     css`
-      background-color: #9c92a3;
+      background-color: ${({ theme }) => theme.white};
+      border: 2px solid ${({ theme }) => theme.color1};
       display: flex;
       justify-content: center;
       align-items: center;
@@ -34,27 +57,9 @@ const CardSide = styled.div`
   ${({ back }) =>
     back &&
     css`
-      background-color: #0b3142;
+      background-color: ${({ theme, won }) =>
+        won ? theme.white : theme.color1};
       transform: ${({ flipped }) =>
         flipped ? "rotateY(180deg)" : "rotateY(0deg)"};
     `};
 `;
-
-const Card = ({ icon, id, flippedCards, hiddenCards, handleClick }) => {
-  const clickable = !flippedCards.includes(id) && !hiddenCards.includes(icon);
-  return (
-    <>
-      <CardWrapper
-        won={hiddenCards.includes(icon)}
-        onClick={clickable ? () => handleClick(icon, id) : null}
-      >
-        <CardSide front flipped={flippedCards.includes(id)}>
-          <img src={icon} alt="icon" />
-        </CardSide>
-        <CardSide back flipped={flippedCards.includes(id)} />
-      </CardWrapper>
-    </>
-  );
-};
-
-export default Card;

@@ -8,11 +8,20 @@ let reducer = (state, action) => {
       return { ...state, user: action.payload };
     case "SET_LEVEL":
       return { ...state, level: action.payload };
+    case "SET_SCORE":
+      return { ...state, score: action.payload };
+    case "CLEAR_STATE":
+      return initialState;
     default:
       return;
   }
 };
-const initialState = { gameState: "welcome", user: "", level: "easy" };
+const initialState = {
+  gameState: "welcome",
+  user: "",
+  level: "easy",
+  score: 0
+};
 const GameContext = React.createContext(initialState);
 const GameProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
