@@ -90,6 +90,7 @@ const Container = styled.div`
 
 const InnerWrapper = styled.div`
   height: 60vh;
+  min-height: 350px;
   max-height: 500px;
   display: flex;
   flex-direction: column;
@@ -126,7 +127,7 @@ const Heading = styled.h1`
 const Image = styled.img`
   object-fit: contain;
   height: 150px;
-  @media (min-width: 500px) {
+  @media (min-width: 500px) and (orientation: portrait) {
     height: 300px;
   }
   @media (min-width: 700px) {
