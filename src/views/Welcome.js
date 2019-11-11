@@ -133,6 +133,6 @@ const Image = styled.img`
     height: 400px;
   }
   @media (min-width: 960px) {
-    height: 100%;
+    height: 600px;
   }
 `;
