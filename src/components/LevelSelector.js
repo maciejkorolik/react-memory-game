@@ -77,13 +77,18 @@ const Indicator = styled.div`
   background-color: ${({ theme }) => theme.color3};
   transition: transform 0.2s ease-out;
   transform: ${({ level }) =>
-    level === "easy" ? "translateX(0)" : "translateX(110px)"};
+    level === "easy" ? "translateX(0)" : "translateX(100px)"};
   @media (min-width: 500px) {
     height: 55px;
     width: 105px;
+    transform: ${({ level }) =>
+      level === "easy" ? "translateX(0)" : "translateX(105px)"};
   }
   @media (min-width: 700px) {
     height: 60px;
     width: 110px;
+    transform: ${({ level }) =>
+      level === "easy" ? "translateX(0)" : "translateX(110px)"};
+  }
   }
 `;
