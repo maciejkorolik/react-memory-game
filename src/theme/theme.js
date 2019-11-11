@@ -7,10 +7,10 @@ export const theme = {
   lightgray: "#aaa",
   fontSize: {
     xxs: "1.2rem",
-    xs: "1.5rem",
-    s: "1.8rem",
-    m: "2rem",
-    l: "2.8rem",
+    xs: "1.8rem",
+    s: "2.5rem",
+    m: "2.8rem",
+    l: "3.5rem",
     xl: "5rem",
     xxl: "6rem"
   }

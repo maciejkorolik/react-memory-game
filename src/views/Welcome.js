@@ -60,36 +60,78 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 15px;
+  @media (min-width: 500px) {
+    padding: 25px;
+  }
+  @media (min-width: 700px) {
+    padding: 30px;
+  }
+  @media (min-width: 960px) {
+    padding: 40px;
+  }
+  @media (min-width: 1200px) {
+    padding: 50px;
+  }
 `;
 
 const Container = styled.div`
   width: 100%;
   max-width: 1200px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   justify-content: space-between;
   max-height: 900px;
+  @media (min-width: 960px) {
+    flex-direction: row;
+  }
 `;
 
 const InnerWrapper = styled.div`
-  height: 100%;
+  height: 60vh;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 30px 0;
-  align-items: flex-start;
+  align-items: center;
+  @media (min-width: 960px) {
+    align-items: flex-start;
+    height: 100%;
+    max-height: 100%;
+  }
 `;
 
 const Heading = styled.h1`
   font-family: "McLaren", sans-serif;
   line-height: 1;
-  font-size: ${({ theme }) => theme.fontSize.xxl};
+  font-size: 3rem;
   color: ${({ theme }) => theme.white};
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  @media (min-width: 700px) {
+    font-size: 3.5rem;
+  }
+  @media (min-width: 960px) {
+    font-size: 5rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 6rem;
+  }
+  @media (min-width: 1440px) {
+    font-size: 7rem;
+  }
 `;
 
 const Image = styled.img`
-  height: 100%;
   object-fit: contain;
+  height: 150px;
+  @media (min-width: 500px) {
+    height: 300px;
+  }
+  @media (min-width: 700px) {
+    height: 400px;
+  }
+  @media (min-width: 960px) {
+    height: 100%;
+  }
 `;

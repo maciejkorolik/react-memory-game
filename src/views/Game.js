@@ -49,8 +49,8 @@ function Game() {
     <Wrapper>
       <Container>
         <TopBar>
-          <Heading>memory card game</Heading>
           <Heading small>Level: {state.level}</Heading>
+          <Heading mobileHidden>memory card game</Heading>
           <Heading small>User: {state.user}</Heading>
         </TopBar>
         <Heading>Moves: {moves}</Heading>
@@ -77,12 +77,24 @@ export default Game;
 
 const Wrapper = styled.div`
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   background: ${({ theme }) => theme.white};
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 15px;
+  @media (min-width: 500px) {
+    padding: 15px 25px;
+  }
+  @media (min-width: 700px) {
+    padding: 20px 30px;
+  }
+  @media (min-width: 960px) {
+    padding: 25px 40px;
+  }
+  @media (min-width: 1200px) {
+    padding: 30px 50px;
+  }
 `;
 
 const Container = styled.div`
@@ -95,7 +107,7 @@ const Container = styled.div`
 
 const TopBar = styled.header`
   width: 100%;
-  height: 130px;
+  height: 80px;
   background-color: ${({ theme }) => theme.white};
   border-radius: 20px;
   box-shadow: 0px 1px 8px rgba(37, 104, 239, 0.4);
@@ -103,5 +115,25 @@ const TopBar = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 60px;
+  padding: 15px 20px;
+  @media (min-width: 500px) {
+    height: 90px;
+    padding: 20px 30px;
+  }
+  @media (min-width: 700px) {
+    height: 100px;
+    padding: 25px 40px;
+  }
+  @media (min-width: 960px) {
+    height: 110px;
+    padding: 30px 50px;
+  }
+  @media (min-width: 1200px) {
+    height: 120px;
+    padding: 30px 60px;
+  }
+  @media (min-width: 1440px) {
+    height: 140px;
+    padding: 30px 80px;
+  }
 `;

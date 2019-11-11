@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 const Input = styled.input`
-  width: auto;
-  min-width: 290px;
+  width: 250px;
   margin: 0;
-  height: 60px;
+  height: 50px;
   border: none;
   background-color: transparent;
   font-family: "McLaren", sans-serif;
   line-height: 1.5;
-  font-size: ${({ theme }) => theme.fontSize.l};
+  font-size: 2.5rem;
   color: ${({ theme }) => theme.white};
   border-bottom: 3px solid ${({ theme }) => theme.white};
   padding: 7px 0;
@@ -22,6 +21,17 @@ const Input = styled.input`
   }
   &::placeholder {
     color: ${({ theme }) => theme.lightgray};
+  }
+
+  @media (min-width: 500px) {
+    width: 300px;
+    font-size: 2.8rem;
+    height: 55px;
+  }
+  @media (min-width: 700px) {
+    width: 300px;
+    font-size: 3.2rem;
+    height: 60px;
   }
 `;
 

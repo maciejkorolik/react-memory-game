@@ -24,8 +24,8 @@ export default Card;
 //Styled components
 
 const CardWrapper = styled.div`
-  width: 170px;
-  height: 170px;
+  width: 100%;
+  height: 100%;
   margin: 0px;
   position: relative;
 `;
@@ -53,6 +53,10 @@ const CardSide = styled.div`
       align-items: center;
       transform: ${({ flipped }) =>
         flipped ? "rotateY(0deg)" : "rotateY(180deg)"};
+      img {
+        height: 80%;
+        object-fit: contain;
+      }
     `}
   ${({ back }) =>
     back &&
