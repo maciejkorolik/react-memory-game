@@ -89,10 +89,10 @@ const Wrapper = styled.div`
   @media (min-width: 700px) {
     padding: 20px 30px;
   }
-  @media (min-width: 960px) {
-    padding: 25px 40px;
-  }
   @media (min-width: 1200px) {
+    padding: 20px 50px;
+  }
+  @media (min-width: 1440px) {
     padding: 30px 50px;
   }
 `;

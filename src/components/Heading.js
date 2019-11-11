@@ -29,6 +29,12 @@ const Heading = styled.h2`
       @media (min-width: 700px) {
         font-size: 2.5rem;
       }
+      @media (min-width: 1200px) {
+        padding: 20px 0;
+      }
+      @media (min-width: 1440px) {
+        padding: 30px 0;
+      }
     `}
   ${({ mobileHidden }) =>
     mobileHidden &&
