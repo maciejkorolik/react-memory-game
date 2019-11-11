@@ -4,6 +4,7 @@ import { GameContext } from "../context";
 import welcomeImage from "../assets/Welcome.png";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import LevelSelector from "../components/LevelSelector";
 
 const Welcome = () => {
   const [user, setUser] = useState("");
@@ -39,6 +40,7 @@ const Welcome = () => {
             value={user}
             onChange={handleInputChange}
           />
+          <LevelSelector />
           <Button onClick={handleSubmit}>play!</Button>
         </InnerWrapper>
         <Image src={welcomeImage} alt="welcome image" />
@@ -75,7 +77,7 @@ const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 50px 0;
+  padding: 30px 0;
   align-items: flex-start;
 `;
 
