@@ -30,9 +30,9 @@ const Board = styled.div`
   }
   @media (min-width: 1200px) {
     grid-template-columns: ${({ level }) =>
-      level === "hard" ? "repeat(6, 150px)" : "repeat(4, 150px)"};
-  grid-auto-rows: 150px;
-  grid-gap: 30px;
+      level === "hard" ? "repeat(6, 145px)" : "repeat(4, 145px)"};
+  grid-auto-rows: 145px;
+  grid-gap: 25px;
   }
    @media (min-width: 1440px) {
     grid-template-columns: ${({ level }) =>

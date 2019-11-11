@@ -53,7 +53,7 @@ function Game() {
           <Heading mobileHidden>memory card game</Heading>
           <Heading small>User: {state.user}</Heading>
         </TopBar>
-        <Heading>Moves: {moves}</Heading>
+        <Heading small>Moves: {moves}</Heading>
         <Board level={state.level}>
           {shuffledIcons.map((icon, index) => (
             <Card
@@ -76,8 +76,8 @@ export default Game;
 //Styled components
 
 const Wrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   background: ${({ theme }) => theme.white};
   display: flex;
   flex-direction: column;
@@ -123,14 +123,6 @@ const TopBar = styled.header`
   @media (min-width: 700px) {
     height: 100px;
     padding: 25px 40px;
-  }
-  @media (min-width: 960px) {
-    height: 110px;
-    padding: 30px 50px;
-  }
-  @media (min-width: 1200px) {
-    height: 120px;
-    padding: 30px 60px;
   }
   @media (min-width: 1440px) {
     height: 140px;

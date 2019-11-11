@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 const Heading = styled.h2`
   font-family: "McLaren", sans-serif;
+  margin: 0;
   line-height: 1;
   font-size: 2.5rem;
   color: ${({ theme }) => theme.color1};
