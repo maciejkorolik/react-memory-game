@@ -55,6 +55,7 @@ export default Welcome;
 const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
+  min-height: 568px;
   background: ${({ theme }) => theme.color1};
   display: flex;
   flex-direction: column;
