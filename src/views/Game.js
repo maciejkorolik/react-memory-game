@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
 import Board from "../components/Board";
 import Heading from "../components/Heading";
 import { GameContext } from "../context";
+import shuffle from "lodash.shuffle";
 import { hardIcons, easyIcons } from "../icons/icons";
 
 function Game() {
@@ -11,10 +12,15 @@ function Game() {
   const [flippedIcons, setFlippedIcons] = useState([]);
   const [won, setWon] = useState([]);
   const [moves, setMoves] = useState(0);
+  const [shuffledIcons, setShuffledIcons] = useState([]);
 
   const { state, dispatch } = useContext(GameContext);
 
-  const shuffledIcons = state.level === "hard" ? hardIcons : easyIcons;
+  useEffect(() => {
+    state.level === "hard"
+      ? setShuffledIcons(shuffle(hardIcons))
+      : setShuffledIcons(shuffle(easyIcons));
+  }, [state.level]);
 
   const handleClick = (icon, id) => {
     if (flippedCards.length < 2) {

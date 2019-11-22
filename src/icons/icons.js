@@ -11,8 +11,6 @@ import icon09 from "./09.png";
 // import icon11 from "./icons/11.png";
 // import icon12 from "./icons/12.png";
 
-import shuffle from "lodash.shuffle";
-
 const icons1 = [
   icon01,
   icon02,
@@ -26,15 +24,12 @@ const icons1 = [
 ];
 
 const icons2 = [icon01, icon02, icon03, icon04, icon05, icon06];
-const hard = icons1.reduce(function(res, current) {
+const hardIcons = icons1.reduce(function(res, current) {
   return res.concat([current, current]);
 }, []);
 
-const easy = icons2.reduce(function(res, current) {
+const easyIcons = icons2.reduce(function(res, current) {
   return res.concat([current, current]);
 }, []);
-
-const easyIcons = shuffle(easy);
-const hardIcons = shuffle(hard);
 
 export { hardIcons, easyIcons };
